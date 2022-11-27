@@ -1,0 +1,113 @@
+import os
+os.system("cls")
+
+import pandas 
+
+Ph = float()
+if Ph < 6 :
+    print(f"\nPh air {Ph}, terlalu rendah, kamu perlu memberikan larutan Ph Up sampai Ph air kembali netral\n")
+elif Ph > 7 :
+    print(f"\nPh air {Ph}, terlalu tinggi, kamu perlu memberikan larutan Ph Down sampai Ph air kembali netral\n")
+else :
+    print(f"\nBagus, air Ph {Ph}, bersifat netral, tanamanmu hanya perlu diberi nutrisi sesuai jadwal\n")
+
+
+x1 = float(input("""Ph Air   :
+"""))
+data = {
+    "   Tanggal" : [27,30,3,6,9,12,15,18,21],
+    "Jadwal ke-" : [1,2,3,4,5,6,7,8,9],
+    "        Ph" : [f"{x1}","","","","","","","",""],
+    "   Larutan" : [f"{Ph}","","","","","","","",""]
+}
+srt = pandas.DataFrame(data,columns = data)
+os.system("cls")
+print(srt)
+
+
+x2 = float(input("Ph Air  :"))
+data = {
+    "   Tanggal" : [27,30,3,6,9,12,15,18,21],
+    "Jadwal ke-" : [1,2,3,4,5,6,7,8,9],
+    "        Ph" : [f"{x1}",f"{x2}","","","","","","",""]
+}
+srt = pandas.DataFrame(data,columns = data)
+os.system("cls")
+print(srt)
+
+
+x3 = float(input("Ph Air  :"))
+data = {
+    "   Tanggal" : [27,30,3,6,9,12,15,18,21],
+    "Jadwal ke-" : [1,2,3,4,5,6,7,8,9],
+    "        Ph" : [f"{x1}",f"{x2}",f"{x3}","","","","","",""]
+}
+srt = pandas.DataFrame(data,columns = data)
+os.system("cls")
+print(srt)
+
+
+x4 = float(input("Ph Air  :"))
+data = {
+    "   Tanggal" : [27,30,3,6,9,12,15,18,21],
+    "Jadwal ke-" : [1,2,3,4,5,6,7,8,9],
+    "        Ph" : [f"{x1}",f"{x2}",f"{x3}",f"{x4}","","","","",""]
+}
+srt = pandas.DataFrame(data,columns = data)
+os.system("cls")
+print(srt)
+
+
+x5 = float(input("Ph Air  :"))
+data = {
+    "   Tanggal" : [27,30,3,6,9,12,15,18,21],
+    "Jadwal ke-" : [1,2,3,4,5,6,7,8,9],
+    "        Ph" : [f"{x1}",f"{x2}",f"{x3}",f"{x4}",f"{x5}","","","",""]
+}
+srt = pandas.DataFrame(data,columns = data)
+os.system("cls")
+print(srt)
+
+
+x6 = float(input("Ph Air  :"))
+data = {
+    "   Tanggal" : [27,30,3,6,9,12,15,18,21],
+    "Jadwal ke-" : [1,2,3,4,5,6,7,8,9],
+    "        Ph" : [f"{x1}",f"{x2}",f"{x3}",f"{x4}",f"{x5}",f"{x6}","","",""]
+}
+srt = pandas.DataFrame(data,columns = data)
+os.system("cls")
+print(srt)
+
+
+x7 = float(input("Ph Air  :"))
+data = {
+    "   Tanggal" : [27,30,3,6,9,12,15,18,21],
+    "Jadwal ke-" : [1,2,3,4,5,6,7,8,9],
+    "        Ph" : [f"{x1}",f"{x2}",f"{x3}",f"{x4}",f"{x5}",f"{x6}",f"{x7}","",""]
+}
+srt = pandas.DataFrame(data,columns = data)
+os.system("cls")
+print(srt)
+
+
+x8 = float(input("Ph Air  :"))
+data = {
+    "   Tanggal" : [27,30,3,6,9,12,15,18,21],
+    "Jadwal ke-" : [1,2,3,4,5,6,7,8,9],
+    "        Ph" : [f"{x1}",f"{x2}",f"{x3}",f"{x4}",f"{x5}",f"{x6}",f"{x7}",f"{x8}",""]
+}
+srt = pandas.DataFrame(data,columns = data)
+os.system("cls")
+print(srt)
+
+
+x9 = float(input("Ph Air  :"))
+data = {
+    "   Tanggal" : [27,30,3,6,9,12,15,18,21],
+    "Jadwal ke-" : [1,2,3,4,5,6,7,8,9],
+    "        Ph" : [f"{x1}",f"{x2}",f"{x3}",f"{x4}",f"{x5}",f"{x6}",f"{x7}",f"{x8}",f"{x9}"]
+}
+srt = pandas.DataFrame(data,columns = data)
+os.system("cls")
+print(srt)
