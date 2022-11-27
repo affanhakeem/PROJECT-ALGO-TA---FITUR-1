@@ -1,0 +1,75 @@
+import os
+os.system("cls")
+
+
+print("""
+==================================
+|   SELAMAT DATANG DI APLIKASI   |
+|           HY! PONIC            |                            
+==================================
+""")
+
+print("Aplikasi ini membantu kamu untuk budidaya tanaman dalam hydroponic\n")
+print("""Pilih jenis tanaman yang ingin kamu budidaya
+[1] SAYUR
+[2] BUAH
+\nKetik [1] jika kamu memilih sayur\nKetik [2] jika kamu memilih buah\n""")
+
+a = int(input("1/2 :"))
+if a == 1:
+    print("""\nPilih sayur yang akan kamu budidaya
+[A] SELADA
+[B] KANGKUNG
+[C] POKCOY
+[D] SELEDRI
+    """)
+    sayur = (input("Mau pilih sayur apa? :"))
+    if sayur == "A" :
+        print("\nKamu telah memilih sayur Selada")
+    elif sayur == "B" :
+        print("\nKamu telah memilih sayur Kangkung")
+    elif sayur == "C" :
+        print("\nKamu telah memilih sayur Pokcoy")
+    elif sayur == "D" :
+        print("\nKamu telah memilih sayur Seledri")
+    else :
+        print("\nPilih A/B/C/D")
+
+elif a == 2 :
+    print("""Pilih buah yang akan kamu budidaya
+[A] ANGGUR
+[B] STOBERI
+[C] TOMAT
+[D] PAPRIKA
+    """)
+    buah = (input("Mau pilih buah apa? :"))
+    if buah == "A" :
+        print("\nKamu telah memilih buah Anggur")
+    elif buah == "B" :
+        print("\nKamu telah memilih buah Stoberi")
+    elif buah == "C" :
+        print("\nKamu telah memilih buah Tomat")
+    elif buah == "D" :
+        print("\nKamu telah memilih buah Paprika")
+    else :
+        print("\nPilih A/B/C/D")
+
+
+os.system("cls")
+
+lubang = int(input("Masukkan jumlah lubang tanam pada hydroponic yang telah kamu buat :"))
+air = int(lubang*1.5)
+print(f"\nJumlah lubang pada hydroponic kamu adalah {lubang}, maka kamu membutuhkan {air}")
+
+
+
+
+
+
+
+
+
+
+
+
+
