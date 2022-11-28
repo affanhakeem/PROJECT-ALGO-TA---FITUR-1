@@ -6,13 +6,13 @@ tgl = datetime.now().strftime("%d/%m/%y")
 while True:
     os.system("cls")
     inp1 = int(input("Penjadwalan pemberian nutrisi ke-> "))
-    inp2 = float(input("Ph-> "))
+    inp2 = float(input("PH-> "))
     if inp2 < 6:
-        lar = "Ph Up"
+        lar = "PH UP"
     elif inp2 > 7:
-        lar = "Ph Down"
+        lar = "PH DOWN"
     else:
-        lar = "Netral"
+        lar = "NETRAL"
 
     opn= open("data.txt","a")
     opn.write(f"{tgl},{inp1},{inp2},{lar}\n")
@@ -25,7 +25,7 @@ while True:
     inp3= input("\nApakah sudah panen [y/n]\n-> ")
     if inp3.lower() == "y":
         opn= open("data.txt","w")
-        opn.write("Tanggal,Jadwal,Ph,Larutan\n")
+        opn.write("Tanggal,Jadwal,PH,Larutan\n")
         opn.close()
         print("""
 ============================
