@@ -7,25 +7,58 @@ import pandas as pd
 
 
 def login():
+    os.system("cls")
+    print("=====LOGIN=====")
     username = input("Username  :")
     password = input("password  :")
-
+    loginn = False
     with open("userslog.csv", "r") as csv_file:
         csv_reader = csv.reader(csv_file)
         for row in csv_reader:
             if row[0] == username and row[1] == password:
-                main()
-        #         return True
-        # return False
+                loginn = True
+                break
+
+    if loginn:
+        mulai()
+    else:
+        os.system("cls")
+        print("Username dan password tidak sesuai program akan diulang dalam...3")
+        time.sleep(2)
+        os.system("cls")
+        for i in range(3):
+            print(f"Username dan password tidak sesuai program akan diulang dalam...{3-i}")
+            time.sleep(1)
+            os.system("cls")
+        os.system("cls")
+        login()
 
 
 def register():
+    os.system("cls")
+    print("=====REGISTRASI=====")
     username = input("Masukkan username: ")
     password = input("Masukkan password: ")
-
-    with open("userslog.csv", "a") as csv_file:
+    with open("userslog.csv", "r") as csv_file:
+            csv_reader = csv.reader(csv_file)
+            for row in csv_reader:
+                # print(row)
+                if row[0] == username:
+                    os.system("cls")
+                    print("Username telah dipakai\nSilahkan buat username yang baru\nprogram akan diulang dalam...3")
+                    time.sleep(2)
+                    os.system("cls")
+                    for i in range(3):
+                        print(f"Username telah dipakai\nSilahkan buat username yang baru\nprogram akan diulang dalam...{3-i}")
+                        time.sleep(1)
+                        os.system("cls")
+                    os.system("cls")
+                    register()
+                    break
+    with open("userslog.csv", "a",newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
         csv_writer.writerow([username, password])
+
 
 def utama():
     while True:
@@ -39,11 +72,15 @@ def utama():
             os.system('cls')
             print('Sedang membuat akunmu....')
             time.sleep(2)
-            print('REGISTER BERHASIL PILIH [2] UNTUK LOGIN')
-            
+            print('REGISTER BERHASIL\nSILAHKAN LOGIN\n\n')
+            login()
+            break
         elif pilihan == '2':
             login()
-        break
+            break
+        else:
+            os.system("cls")
+            print("input tidak sesuai masukkan 1 atau 2")
             
 
 def header():
@@ -55,15 +92,19 @@ def header():
 """)
     print("Aplikasi ini membantu kamu untuk budidaya tanaman dalam hydroponic\n\n")
     print("-"*65)
+    utama()
 
 
 #MEMULAI PROGRAM
 def mulai():
+    os.system("cls")
     print("""\n\nPilih jenis tanaman yang ingin kamu budidaya
 ----------------           ----------------
 |  [1]  SAYUR  |           |  [2]  BUAH   |
 ----------------           ----------------
 """)
+    main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan)
+
 
 
 
@@ -361,9 +402,12 @@ def main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan):
 
 
 header()
-utama()
-mulai()
+
+
+# utama()
+# mulai()
 # start()
-main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan)
+# main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan)
 
  
+# login()
