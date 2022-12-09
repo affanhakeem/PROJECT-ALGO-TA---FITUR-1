@@ -1,11 +1,13 @@
 import os
-import time
 import csv
-from tabulate import tabulate
-from datetime import datetime
+import time
 import pandas as pd
+from datetime import datetime
+from tabulate import tabulate
 
 
+
+#LOGIN
 def login():
     os.system("cls")
     print("======= LOGIN =======\n")
@@ -22,7 +24,6 @@ def login():
 
     if loginn:
         mulai()
-
     else:
         os.system("cls")
         print("Username dan password tidak sesuai, program akan diulang dalam...3")
@@ -48,6 +49,8 @@ def login():
         #     kali += 1
 
 
+
+#REGISTRASI
 def register():
     os.system("cls")
     print("====== REGISTRASI ======\n")
@@ -73,6 +76,8 @@ def register():
         csv_writer.writerow([username, password])
 
 
+
+#PERMULAAN MELAKUKAN LOGIN ATAU REGISTER
 def utama():
     while True:
         print("Tekan 1 atau 2\n")
@@ -98,6 +103,8 @@ def utama():
             print("Ketikkan sesuai dengan kode, masukkan 1 atau 2")
             
 
+
+#PEMBUKAAN APLIKASI
 def header():
     print("""
 ==================================
@@ -110,6 +117,7 @@ def header():
     print("-"*65)
     print("\n\n")
     utama()
+
 
 
 #MEMULAI PROGRAM
@@ -127,42 +135,6 @@ def mulai():
 ----------------           ----------------
 """)
     main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan)
-
-
-
-
-#PENGISIAN LUBANG HYDROPONIC
-def tahap2(ltr, nutri):
-    os.system("cls")
-    while True :
-        os.system("cls")
-        lubang = int(input("Masukkan jumlah lubang tanam pada hydroponic yang telah kamu buat\n=> "))
-        air = int(lubang*ltr)
-        ntr = int(air*nutri)
-        print(f"""\nJumlah lubang pada hydroponic kamu adalah {lubang}\n\nMAKA KAMU MEMBUTHKAN SEKITAR
-=======================
-|   {air} LITER AIR   |                                
-=======================
-Dalam proses penanamanan sayur Selada\n
-""")
-        print("-"*65)
-        print("-"*65)
-        print(f"""\n\nMaka dengan {air} liter air\n\nKAMU MEMBUTUHKAN 
-========================
-|   {ntr} ML NUTRISI   |                                
-========================
-Dalam setiap kali penjadwalan\n(!!! 3 HARI SEKALI !!!)\n
-""")
-        print("-"*65)
-        print("-"*65)
-
-        nt3 = input("\n\nApakah kamu mau lanjut ke tahap penjadwalan?\n[Y/N]\n=> ")
-        if nt3.lower() == "y":
-            os.system("cls")
-            break
-        elif nt3.lower() == 'n':
-            pass
-            os.system("cls")
 
 
 
@@ -234,7 +206,6 @@ def pilih_syr(mulai):
 
     os.system("cls")
     return jdl,baw,bak,ltr,nutri
-
 
 
 
@@ -310,10 +281,44 @@ def pilih_buah(mulai):
 
 
 
+#PENGISIAN LUBANG HYDROPONIC
+def tahap2(ltr, nutri):
+    os.system("cls")
+    while True :
+        os.system("cls")
+        lubang = int(input("Masukkan jumlah lubang tanam pada hydroponic yang telah kamu buat\n=> "))
+        air = int(lubang*ltr)
+        ntr = int(air*nutri)
+        print(f"""\nJumlah lubang pada hydroponic kamu adalah {lubang}\n\nMAKA KAMU MEMBUTHKAN SEKITAR
+=======================
+|   {air} LITER AIR   |                                
+=======================
+Dalam proses penanamanan sayur Selada\n
+""")
+        print("-"*65)
+        print("-"*65)
+        print(f"""\n\nMaka dengan {air} liter air\n\nKAMU MEMBUTUHKAN 
+========================
+|   {ntr} ML NUTRISI   |                                
+========================
+Dalam setiap kali penjadwalan\n(!!! 3 HARI SEKALI !!!)\n
+""")
+        print("-"*65)
+        print("-"*65)
+
+        nt3 = input("\n\nApakah kamu mau lanjut ke tahap penjadwalan?\n[Y/N]\n=> ")
+        if nt3.lower() == "y":
+            os.system("cls")
+            break
+        elif nt3.lower() == 'n':
+            pass
+            os.system("cls")
+
+
+
 #TUTOR SAYUR DAN BUAH
 def tutorSyrBh(jdl, baw, bak):
     while True :
-        
         print(jdl)
         rd = open("tutorial.txt", "r")
         var = rd.readlines()[baw:bak]
@@ -326,6 +331,8 @@ def tutorSyrBh(jdl, baw, bak):
         elif nt2.lower() == "n":
             pass
         os.system("cls")
+
+
 
 #PENJADWALAN DAN CEK PH
 def penjadwalan():
@@ -357,6 +364,8 @@ def penjadwalan():
 """)
 
 
+
+#MENGUMPULKAN SEMUA DEF
 def main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan):
     pick = int(input("=> "))
     os.system("cls")
@@ -432,9 +441,4 @@ def main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan):
 
 header()
 # utama()
-# mulai()
-# start()
 # main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan)
-
- 
-# login()
