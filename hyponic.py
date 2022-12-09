@@ -8,9 +8,10 @@ import pandas as pd
 
 def login():
     os.system("cls")
-    print("=====LOGIN=====")
-    username = input("Username  :")
-    password = input("password  :")
+    print("======= LOGIN =======\n")
+    username = input("Username  : ")
+    password = input("Password  : ")
+    kali = 1
     loginn = False
     with open("userslog.csv", "r") as csv_file:
         csv_reader = csv.reader(csv_file)
@@ -21,35 +22,47 @@ def login():
 
     if loginn:
         mulai()
+
     else:
         os.system("cls")
-        print("Username dan password tidak sesuai program akan diulang dalam...3")
-        time.sleep(2)
+        print("Username dan password tidak sesuai, program akan diulang dalam...3")
+        time.sleep(1)
         os.system("cls")
         for i in range(3):
-            print(f"Username dan password tidak sesuai program akan diulang dalam...{3-i}")
+            print(f"Username dan password tidak sesuai, program akan diulang dalam...{3-i}")
             time.sleep(1)
             os.system("cls")
         os.system("cls")
         login()
+        # while True :
+        #     if kali == 3:
+        #         print(f"Kamu telah gagal login sebanyak {kali} kali")
+        #         print("Sistem akan kembali ke menu utama dalam...3")
+        #         time.sleep(1)
+        #         os.system("cls")
+        #         for i in range(3):
+        #             print(f"Sistem akan kembali ke menu utama dalam...{3-i}")
+        #             time.sleep(1)
+        #             os.system("cls")
+        #         utama()
+        #     kali += 1
 
 
 def register():
     os.system("cls")
-    print("=====REGISTRASI=====")
-    username = input("Masukkan username: ")
-    password = input("Masukkan password: ")
+    print("====== REGISTRASI ======\n")
+    username = input("Masukkan Username: ")
+    password = input("Masukkan Password: ")
     with open("userslog.csv", "r") as csv_file:
             csv_reader = csv.reader(csv_file)
             for row in csv_reader:
-                # print(row)
                 if row[0] == username:
                     os.system("cls")
-                    print("Username telah dipakai\nSilahkan buat username yang baru\nprogram akan diulang dalam...3")
-                    time.sleep(2)
+                    print("Username telah dipakai, silahkan buat username yang baru\nProgram akan diulang dalam...3")
+                    time.sleep(1)
                     os.system("cls")
                     for i in range(3):
-                        print(f"Username telah dipakai\nSilahkan buat username yang baru\nprogram akan diulang dalam...{3-i}")
+                        print(f"Username telah dipakai, silahkan buat username yang baru\nProgram akan diulang dalam...{3-i}")
                         time.sleep(1)
                         os.system("cls")
                     os.system("cls")
@@ -62,17 +75,19 @@ def register():
 
 def utama():
     while True:
-        print("1. REGISTER")
-        print("2. LOGIN")
+        print("Tekan 1 atau 2\n")
+        print("[1] REGISTER")
+        print("[2] LOGIN")
 
-        pilihan = input("Pilih menu: ")
+        pilihan = input("=> ")
 
         if pilihan == "1":
             register()
             os.system('cls')
-            print('Sedang membuat akunmu....')
+            print('Sedang membuat akunmu....\n')
             time.sleep(2)
             print('REGISTER BERHASIL\nSILAHKAN LOGIN\n\n')
+            time.sleep(2)
             login()
             break
         elif pilihan == '2':
@@ -80,7 +95,7 @@ def utama():
             break
         else:
             os.system("cls")
-            print("input tidak sesuai masukkan 1 atau 2")
+            print("Ketikkan sesuai dengan kode, masukkan 1 atau 2")
             
 
 def header():
@@ -92,12 +107,20 @@ def header():
 """)
     print("Aplikasi ini membantu kamu untuk budidaya tanaman dalam hydroponic\n\n")
     print("-"*65)
+    print("-"*65)
+    print("\n\n")
     utama()
 
 
 #MEMULAI PROGRAM
 def mulai():
     os.system("cls")
+    print("""
+==================================
+|   SELAMAT DATANG DI APLIKASI   |
+|           HY! PONIC            |                            
+==================================
+""")
     print("""\n\nPilih jenis tanaman yang ingin kamu budidaya
 ----------------           ----------------
 |  [1]  SAYUR  |           |  [2]  BUAH   |
@@ -123,12 +146,14 @@ def tahap2(ltr, nutri):
 Dalam proses penanamanan sayur Selada\n
 """)
         print("-"*65)
+        print("-"*65)
         print(f"""\n\nMaka dengan {air} liter air\n\nKAMU MEMBUTUHKAN 
 ========================
 |   {ntr} ML NUTRISI   |                                
 ========================
 Dalam setiap kali penjadwalan\n(!!! 3 HARI SEKALI !!!)\n
 """)
+        print("-"*65)
         print("-"*65)
 
         nt3 = input("\n\nApakah kamu mau lanjut ke tahap penjadwalan?\n[Y/N]\n=> ")
@@ -233,8 +258,8 @@ def pilih_buah(mulai):
 |      BUAH ANGGUR       |                            
 ==========================
 """
-        baw = 0
-        bak = 28
+        baw = 125
+        bak = 145
         ltr = 1.5
         nutri = 5
 
@@ -242,11 +267,11 @@ def pilih_buah(mulai):
         jdl = """
 ==========================
 |   Kamu telah memilih   |
-|      BUAH STOBERI      |                            
+|    BUAH STRAWBERRY     |                            
 ==========================
 """
-        baw = 33
-        bak = 48
+        baw = 149
+        bak = 166
         ltr = 1.5
         nutri = 5
 
@@ -257,26 +282,29 @@ def pilih_buah(mulai):
 |       BUAH TOMAT       |                            
 ==========================
 """
-        baw = 53
-        bak = 76
+        baw = 170
+        bak = 196
         ltr = 1.5
         nutri = 5
 
-    elif pilih_buah.lower() == "d" :
+    elif buah.lower() == "d" :
         jdl = """
 ==========================
 |   Kamu telah memilih   |
 |      BUAH PAPRIKA      |                            
 ==========================
 """
-        baw = 80
-        bak = 109
+        baw = 201
+        bak = 221
         ltr = 1.5
         nutri = 5
 
     else :
-        os.system("cls")
-        print("\n!!! Tolong masukkan kode dengan benar !!!")
+            os.system("cls")
+            print("\n!!! Tolong masukkan kode dengan benar !!!")
+            pilih_buah(mulai)
+            return jdl,baw,bak,ltr,nutri
+
     os.system("cls")
     return jdl,baw,bak,ltr,nutri
 
@@ -287,7 +315,6 @@ def tutorSyrBh(jdl, baw, bak):
     while True :
         
         print(jdl)
-        print("\nSEBELUM MELAKUKAN PENANAMAN SAYUR SELADA PADA HYDROPONIC, YUK SIMAK DULU TUTORIAL DI BAWAH INI YA\n")
         rd = open("tutorial.txt", "r")
         var = rd.readlines()[baw:bak]
         for o in var:
@@ -345,7 +372,7 @@ def main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan):
                     penjadwalan()
                     continue    
                 elif inp3.lower() == "y" :
-                    print("Apakah kamu yakin dengan pilihanmu? Jika benar-benar sudah panen maka data penjadwalan akan terhapus")
+                    print("\nApakah kamu yakin dengan pilihanmu? Jika benar-benar sudah panen maka data penjadwalan akan terhapus")
 
                     finish= input("\nApakah betul sudah panen? \n[Y/N]\n=> ")
                     if finish.lower() == 'n':
@@ -362,7 +389,8 @@ def main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan):
 ============================
 """)
                 break
- 
+            exit()
+
     elif pick == 2:
             jdl, baw, bak, ltr, nutri = pilih_buah(mulai)
             tutorSyrBh(jdl, baw, bak)
@@ -392,6 +420,7 @@ def main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan):
 ============================
 """)       
                 break
+            exit()
 
     else :
         os.system("cls")
@@ -402,8 +431,6 @@ def main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan):
 
 
 header()
-
-
 # utama()
 # mulai()
 # start()
