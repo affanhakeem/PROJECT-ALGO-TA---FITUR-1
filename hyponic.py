@@ -23,30 +23,36 @@ def login():
                 break
 
     if loginn:
-        mulai()
-    else:
         os.system("cls")
-        print("Username dan password tidak sesuai, program akan diulang dalam...3")
+        print("LOGIN BERHASIL\n\nAkan memasuki aplikasi dalam...3")
         time.sleep(1)
         os.system("cls")
         for i in range(3):
-            print(f"Username dan password tidak sesuai, program akan diulang dalam...{3-i}")
+            print(f"LOGIN BERHASIL\n\nAkan memasuki aplikasi dalam...{3-i}")
             time.sleep(1)
             os.system("cls")
+        mulai()
+
+    else:
+        os.system("cls")
+        print("Username atau Password tidak sesuai")
+        time.sleep(2)
         os.system("cls")
         login()
-        # while True :
-        #     if kali == 3:
-        #         print(f"Kamu telah gagal login sebanyak {kali} kali")
-        #         print("Sistem akan kembali ke menu utama dalam...3")
-        #         time.sleep(1)
-        #         os.system("cls")
-        #         for i in range(3):
-        #             print(f"Sistem akan kembali ke menu utama dalam...{3-i}")
-        #             time.sleep(1)
-        #             os.system("cls")
-        #         utama()
-        #     kali += 1
+        
+        kali = 1
+        while kali < 3 :
+            if row[0] == username and row[1] == password :
+                print(f"Kamu telah gagal login sebanyak {kali} kali")
+                print("Sistem akan kembali ke menu utama dalam...3")
+                time.sleep(1)
+                os.system("cls")
+                for i in range(3):
+                    print(f"Sistem akan kembali ke menu utama dalam...{3-i}")
+                    time.sleep(1)
+                    os.system("cls")
+                utama()
+            kali += 1
 
 
 
@@ -61,13 +67,8 @@ def register():
             for row in csv_reader:
                 if row[0] == username:
                     os.system("cls")
-                    print("Username telah dipakai, silahkan buat username yang baru\nProgram akan diulang dalam...3")
-                    time.sleep(1)
-                    os.system("cls")
-                    for i in range(3):
-                        print(f"Username telah dipakai, silahkan buat username yang baru\nProgram akan diulang dalam...{3-i}")
-                        time.sleep(1)
-                        os.system("cls")
+                    print("Username telah dipakai, silahkan buat username baru")
+                    time.sleep(2)
                     os.system("cls")
                     register()
                     break
@@ -85,14 +86,19 @@ def utama():
         print("[2] LOGIN")
 
         pilihan = input("=> ")
-
         if pilihan == "1":
             register()
             os.system('cls')
             print('Sedang membuat akunmu....\n')
             time.sleep(2)
-            print('REGISTER BERHASIL\nSILAHKAN LOGIN\n\n')
-            time.sleep(2)
+            os.system("cls")
+            print("REGISTER BERHASIL, akan menuju login dalam...3")
+            time.sleep(1)
+            os.system("cls")
+            for i in range(3):
+                print(f"REGISTER BERHASIL, akan menuju login dalam...{3-i}")
+                time.sleep(1)
+                os.system("cls")
             login()
             break
         elif pilihan == '2':
@@ -100,7 +106,7 @@ def utama():
             break
         else:
             os.system("cls")
-            print("Ketikkan sesuai dengan kode, masukkan 1 atau 2")
+            print("!!! Ketikkan sesuai dengan kode !!!")
             
 
 
@@ -148,6 +154,8 @@ def pilih_syr(mulai):
 [B] KANGKUNG
 [C] PAKCOY
 [D] SELEDRI
+
+[Z] KEMBALI
 """)
     sayur = (input("=> "))
     if sayur.lower() == "a" :
@@ -197,12 +205,15 @@ def pilih_syr(mulai):
         bak = 120
         ltr = 1.5
         nutri = 5
+
+    elif sayur.lower() == "z" :
+        mulai()
             
     else :
-            os.system("cls")
-            print("\n!!! Tolong masukkan kode dengan benar !!!")
-            pilih_syr(mulai)
-            return jdl,baw,bak,ltr,nutri
+        os.system("cls")
+        print("\n!!! Tolong masukkan kode dengan benar !!!")
+        pilih_syr(mulai)
+        return jdl,baw,bak,ltr,nutri
 
     os.system("cls")
     return jdl,baw,bak,ltr,nutri
@@ -220,6 +231,7 @@ def pilih_buah(mulai):
 [C] TOMAT
 [D] PAPRIKA
 
+[Z] KEMBALI
 """)
     buah = (input("=> "))
     if buah.lower() == "a" :
@@ -270,14 +282,35 @@ def pilih_buah(mulai):
         ltr = 1.5
         nutri = 5
 
+    elif buah.lower() == "z" :
+        mulai()
+
     else :
-            os.system("cls")
-            print("\n!!! Tolong masukkan kode dengan benar !!!")
-            pilih_buah(mulai)
-            return jdl,baw,bak,ltr,nutri
+        os.system("cls")
+        print("\n!!! Tolong masukkan kode dengan benar !!!")
+        pilih_buah(mulai)
+        return jdl,baw,bak,ltr,nutri
 
     os.system("cls")
     return jdl,baw,bak,ltr,nutri
+
+
+
+#TUTOR SAYUR DAN BUAH
+def tutorSyrBh(jdl, baw, bak):
+    while True :
+        print(jdl)
+        rd = open("tutorial.txt", "r")
+        var = rd.readlines()[baw:bak]
+        for o in var:
+            print(o, end="")
+
+        nt2 = input("\nApakah sudah paham?\n[Y/N]\n=> ")
+        if nt2.lower() == "y":
+            break
+        elif nt2.lower() == "n":
+            pass
+        os.system("cls")
 
 
 
@@ -313,25 +346,7 @@ Dalam setiap kali penjadwalan\n(!!! 3 HARI SEKALI !!!)\n
         elif nt3.lower() == 'n':
             pass
             os.system("cls")
-
-
-
-#TUTOR SAYUR DAN BUAH
-def tutorSyrBh(jdl, baw, bak):
-    while True :
-        print(jdl)
-        rd = open("tutorial.txt", "r")
-        var = rd.readlines()[baw:bak]
-        for o in var:
-            print(o, end="")
-
-        nt2 = input("\nApakah sudah paham?\n[Y/N]\n=> ")
-        if nt2.lower() == "y":
-            break
-        elif nt2.lower() == "n":
-            pass
-        os.system("cls")
-
+            
 
 
 #PENJADWALAN DAN CEK PH
@@ -365,71 +380,55 @@ def penjadwalan():
 
 
 
-#MENGUMPULKAN SEMUA DEF
-def main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan):
-    pick = int(input("=> "))
-    os.system("cls")
-    if pick == 1:
-            jdl, baw, bak, ltr, nutri = pilih_syr(mulai)
-            tutorSyrBh(jdl, baw, bak)
-            tahap2(ltr, nutri)
+#PENENTUAN PANEN ATAU BELUM
+def panen(penjadwalan):
+    while True :
+        inp3 = input("\nApakah sudah panen?\n[Y/N]\n=> ")
+        if inp3.lower() == "n" :
             penjadwalan()
+            continue    
+        elif inp3.lower() == "y" :
+            print("\nApakah kamu yakin dengan pilihanmu? Jika benar-benar sudah panen maka data penjadwalan akan terhapus")
 
-            while True :
-                inp3 = input("\nApakah sudah panen?\n[Y/N]\n=> ")
-                if inp3.lower() == "n" :
-                    penjadwalan()
-                    continue    
-                elif inp3.lower() == "y" :
-                    print("\nApakah kamu yakin dengan pilihanmu? Jika benar-benar sudah panen maka data penjadwalan akan terhapus")
-
-                    finish= input("\nApakah betul sudah panen? \n[Y/N]\n=> ")
-                    if finish.lower() == 'n':
-                        penjadwalan()
-                        continue
-                    elif finish.lower() == "y":
-                        opn= open("data.txt","w")
-                        opn.write("Tanggal,Jadwal,PH,Larutan\n")
-                        opn.close()
-                        print("""
+            finish= input("\nApakah betul sudah panen? \n[Y/N]\n=> ")
+            if finish.lower() == 'n':
+                penjadwalan()
+                continue
+            elif finish.lower() == "y":
+                opn= open("data.txt","w")
+                opn.write("Tanggal,Jadwal,PH,Larutan\n")
+                opn.close()
+                print("""
 ============================
 |   SELAMAT TANAMAN KAMU   |
 |       TELAH PANEN!       |                                
 ============================
 """)
-                break
-            exit()
+        break
+
+
+
+#TAHAP PENGUMPULAN SEMUA DEF
+def main(mulai, tahap2, pilih_syr, pilih_buah, tutorSyrBh, penjadwalan):
+    pick = int(input("=> "))
+    os.system("cls")
+    if pick == 1:
+        jdl, baw, bak, ltr, nutri = pilih_syr(mulai)
+        tutorSyrBh(jdl, baw, bak)
+        tahap2(ltr, nutri)
+        penjadwalan()
+        panen(penjadwalan)
+            
+        exit()
 
     elif pick == 2:
-            jdl, baw, bak, ltr, nutri = pilih_buah(mulai)
-            tutorSyrBh(jdl, baw, bak)
-            tahap2(ltr, nutri)
-            penjadwalan()
-
-            while True :
-                inp3 = input("\nApakah sudah panen?\n[Y/N]\n=> ")
-                if inp3.lower() == "n" :
-                    penjadwalan()
-                    continue    
-                elif inp3.lower() == "y" :
-                    print("/nApakah kamu yakin dengan pilihanmu? Jika benar-benar sudah panen maka data penjadwalan akan terhapus")
-
-                    finish= input("\nApakah betul sudah panen? \n[Y/N]\n=> ")
-                    if finish.lower() == 'n':
-                        penjadwalan()
-                        continue
-                    elif finish.lower() == "y":
-                        opn= open("data.txt","w")
-                        opn.write("Tanggal,Jadwal,PH,Larutan\n")
-                        opn.close()
-                        print("""
-============================
-|   SELAMAT TANAMAN KAMU   |
-|       TELAH PANEN!       |                                
-============================
-""")       
-                break
-            exit()
+        jdl, baw, bak, ltr, nutri = pilih_buah(mulai)
+        tutorSyrBh(jdl, baw, bak)
+        tahap2(ltr, nutri)
+        penjadwalan()
+        panen(penjadwalan)
+        
+        exit()
 
     else :
         os.system("cls")
